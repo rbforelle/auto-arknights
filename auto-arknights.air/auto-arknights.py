@@ -32,6 +32,8 @@ def wait_for_multi_pics(pics, timeout, interval):
 
 
 def snapshot_with_current_time(SNAPSHOT_DIR, msg=""):
+    if not os.path.exists(SNAPSHOT_DIR):
+        os.makedirs(SNAPSHOT_DIR)
     time_stamp = time.strftime("%Y%m%d_%H%M%S", time.localtime()) 
     snapshot_file = SNAPSHOT_DIR + '/' + time_stamp + '_' + msg + '.jpg'
     snapshot(filename = snapshot_file, msg=msg)
@@ -100,6 +102,7 @@ def auto_arknights(run_times):
             
 
 auto_arknights(10)
+
 
 
 
